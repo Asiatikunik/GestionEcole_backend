@@ -10,24 +10,21 @@ import java.util.Set;
  *
  */
 public class Ecole {
-	//Ensemble des promotions de l'ecole
-	private Set<fr.uvsq.isty.gestionecole.modeles.Promotion> promotions;
-	//Ensemble des sessions de l'ecole
-	private Set<Session> sessions;
-	//Ensemble des UE de l'ecole
-	private Set<UniteEnseignement> unitesEnseignement;
-	//Ensemble des creneaux temporels
-	private Set<fr.uvsq.isty.gestionecole.modeles.Creneau> creneaux;
+
+	private Set<Promotion> promotions; 	//Ensemble des promotions de l'ecole
+	private Set<Session> sessions; 	//Ensemble des sessions de l'ecole
+	private Set<UniteEnseignement> unitesEnseignement; 	//Ensemble des UE de l'ecole
+	private Set<Creneau> creneaux; 	//Ensemble des creneaux temporels
 	
 	/**
 	 * Construit une ecole avec des ensembles vides
 	 */
 	public Ecole(){
 		//Tous les attributs sont initialises a vide
-		this.promotions = new HashSet<fr.uvsq.isty.gestionecole.modeles.Promotion>();
+		this.promotions = new HashSet<Promotion>();
 		this.sessions = new HashSet<Session>();
 		this.unitesEnseignement = new HashSet<UniteEnseignement>();
-		this.creneaux = new HashSet<fr.uvsq.isty.gestionecole.modeles.Creneau>();
+		this.creneaux = new HashSet<Creneau>();
 	}
 	
 	/**
@@ -35,11 +32,12 @@ public class Ecole {
 	 * @param nom : le nom a rechercher
 	 * @return La derniere promotion dont le nom correspond a nom ou une promotion vide si aucune ne correspond
 	 */
-	public fr.uvsq.isty.gestionecole.modeles.Promotion getPromotionByNom(String nom) {
-		fr.uvsq.isty.gestionecole.modeles.Promotion retour = new fr.uvsq.isty.gestionecole.modeles.Promotion();
-		for(fr.uvsq.isty.gestionecole.modeles.Promotion p : this.getPromotions()) {
-			if(nom.equals(p.getNom())) {
-				retour = p;			}
+	public Promotion getPromotionByNom(String nom) {
+		Promotion retour = new Promotion();
+		for(Promotion promotion : this.getPromotions()) {
+			if(nom.equals(promotion.getNom())) {
+				retour = promotion;
+            }
 		}
 		return retour;
 	}
@@ -66,9 +64,9 @@ public class Ecole {
 	 * @return le dernier creneau dont le toString() correspond ou un creneau vide si aucun ne correspond
 	 */
 //	@GetMapping(/getCreneauByString)
-	public fr.uvsq.isty.gestionecole.modeles.Creneau getCreneauByString(String string) {
-		fr.uvsq.isty.gestionecole.modeles.Creneau retour = new fr.uvsq.isty.gestionecole.modeles.Creneau();
-		for(fr.uvsq.isty.gestionecole.modeles.Creneau cr : this.getCreneaux()) {
+	public Creneau getCreneauByString(String string) {
+		Creneau retour = new Creneau();
+		for(Creneau cr : this.getCreneaux()) {
 			if(string.equals(cr.toString())) {
 				retour = cr;
 			}
@@ -97,7 +95,7 @@ public class Ecole {
 	 * Getter pour promotions
 	 * @return l'ensemble des promotions
 	 */
-	public Set<fr.uvsq.isty.gestionecole.modeles.Promotion> getPromotions() {
+	public Set<Promotion> getPromotions() {
 		return promotions;
 	}
 
@@ -105,7 +103,7 @@ public class Ecole {
 	 * Setter pour promotions
 	 * @param promotions : le nouvel ensemble des promotions
 	 */
-	public void setPromotions(Set<fr.uvsq.isty.gestionecole.modeles.Promotion> promotions) {
+	public void setPromotions(Set<Promotion> promotions) {
 		this.promotions = promotions;
 	}
 	
@@ -113,7 +111,7 @@ public class Ecole {
 	 * Ajoute une promotion a l'ensemble des promotions
 	 * @param promotion : promotion a ajouter
 	 */
-	public void addPromotion(fr.uvsq.isty.gestionecole.modeles.Promotion promotion) {
+	public void addPromotion(Promotion promotion) {
 		this.promotions.add(promotion);
 	}
 	
@@ -121,7 +119,7 @@ public class Ecole {
 	 * Retire une promotion de l'ensemble des promotions
 	 * @param promotion : promotion a retirer
 	 */
-	public void removePromotion(fr.uvsq.isty.gestionecole.modeles.Promotion promotion) {
+	public void removePromotion(Promotion promotion) {
 		this.promotions.remove(promotion);
 	}
 
@@ -193,7 +191,7 @@ public class Ecole {
 	 * Getter pour l'ensemble des creneaux
 	 * @return l'ensemble des creneaux
 	 */
-	public Set<fr.uvsq.isty.gestionecole.modeles.Creneau> getCreneaux() {
+	public Set<Creneau> getCreneaux() {
 		return creneaux;
 	}
 
@@ -201,7 +199,7 @@ public class Ecole {
 	 * Setter pour l'ensemble des creneaux
 	 * @param creneaux : le nouvel ensemble des creneaux
 	 */
-	public void setCreneaux(Set<fr.uvsq.isty.gestionecole.modeles.Creneau> creneaux) {
+	public void setCreneaux(Set<Creneau> creneaux) {
 		this.creneaux = creneaux;
 	}
 	
@@ -209,7 +207,7 @@ public class Ecole {
 	 * Ajoute un creneau a l'ensemble des creneaux
 	 * @param creneau : creneau a ajouter a l'ensemble des creneaux
 	 */
-	public void addCreneau(fr.uvsq.isty.gestionecole.modeles.Creneau creneau) {
+	public void addCreneau(Creneau creneau) {
 		this.creneaux.add(creneau);
 	}
 	
@@ -217,7 +215,7 @@ public class Ecole {
 	 * Retire un creneau de l'ensemble des creneaux
 	 * @param creneau : creneau a retirer de l'ensemble des creneaux
 	 */
-	public void removeCreneau(fr.uvsq.isty.gestionecole.modeles.Creneau creneau) {
+	public void removeCreneau(Creneau creneau) {
 		this.creneaux.remove(creneau);
 	}
 
@@ -225,7 +223,7 @@ public class Ecole {
 		String s = "";
 		
 		s = s + "Promotions\n------\n";
-		for (fr.uvsq.isty.gestionecole.modeles.Promotion p : this.promotions) {
+		for (Promotion p : this.promotions) {
 			s = s + p.toString() + "\n";
 		}
 		s = s + "\n";
@@ -243,7 +241,7 @@ public class Ecole {
 		s = s + "\n";
 		
 		s = s + "Creneaux\n------\n";
-		for (fr.uvsq.isty.gestionecole.modeles.Creneau c : this.creneaux) {
+		for (Creneau c : this.creneaux) {
 			s = s + c.toString() + "\n";
 		}
 		s = s + "\n";

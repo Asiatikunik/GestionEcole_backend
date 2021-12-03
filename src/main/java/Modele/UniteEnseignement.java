@@ -7,10 +7,9 @@ package Modele;
  *
  */
 public class UniteEnseignement {
-	//le sigle
-	String sigle;
-	//le nom
-	String nom;
+
+	String sigle; 	//le sigle
+	String nom; 	//le nom
 	
 	/**
 	 * Construit une UE

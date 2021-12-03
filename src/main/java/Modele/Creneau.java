@@ -10,12 +10,10 @@ import java.time.LocalTime;
  *
  */
 public class Creneau {
-	//Date du creneau
-	LocalDate date;
-	//Horaire de debut du creneau
-	LocalTime debut;
-	//Horaire de fin du creneau
-	LocalTime fin;
+
+	LocalDate date; 	//Date du creneau
+	LocalTime debut; 	//Horaire de debut du creneau
+	LocalTime fin; 	//Horaire de fin du creneau
 	
 	/**
 	 * Construit un creneau temporel

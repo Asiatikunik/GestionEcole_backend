@@ -2,18 +2,18 @@ package Modele;
 
 //TODO: not used...
 public class Modele {
-	private fr.uvsq.isty.gestionecole.modeles.Ecole ecole;
+	private Ecole ecole;
 	
 	public Modele() {
 		super();
-		this.ecole = new fr.uvsq.isty.gestionecole.modeles.Ecole();
+		this.ecole = new Ecole();
 	}
 
-	public fr.uvsq.isty.gestionecole.modeles.Ecole getEcole() {
+	public Ecole getEcole() {
 		return ecole;
 	}
 
-	public void setEcole(fr.uvsq.isty.gestionecole.modeles.Ecole ecole) {
+	public void setEcole(Ecole ecole) {
 		this.ecole = ecole;
 	}
 	

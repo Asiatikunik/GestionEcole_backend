@@ -8,12 +8,10 @@ package Modele;
  */
 public class Session {
 	
-	//L'ue enseignee durant la session
-	private UniteEnseignement uniteEnseigment;
-	//La promotion qui va suivre le cours
-	private fr.uvsq.isty.gestionecole.modeles.Promotion promotion;
-	//Le creneau temporel sur lequel la session a lieu
-	private fr.uvsq.isty.gestionecole.modeles.Creneau creneau;
+
+	private UniteEnseignement uniteEnseigment; 	//L'ue enseignee durant la session
+	private Promotion promotion; 	//La promotion qui va suivre le cours
+	private Creneau creneau; 	//Le creneau temporel sur lequel la session a lieu
 	
 	/**
 	 * Construitu ne nouvelle session
@@ -21,7 +19,7 @@ public class Session {
 	 * @param promotion : La promotion qui va suivre le cours
 	 * @param creneau : Le creneau temporel sur lequel la session a lieu
 	 */
-	public Session(UniteEnseignement ue, fr.uvsq.isty.gestionecole.modeles.Promotion promotion, fr.uvsq.isty.gestionecole.modeles.Creneau creneau) {
+	public Session(UniteEnseignement ue, Promotion promotion, Creneau creneau) {
 		this.uniteEnseigment = ue;
 		this.promotion = promotion;
 		this.creneau = creneau;
@@ -54,7 +52,7 @@ public class Session {
 	 * Getter pour la promotion
 	 * @return la promotion
 	 */
-	public fr.uvsq.isty.gestionecole.modeles.Promotion getPromotion() {
+	public Promotion getPromotion() {
 		return promotion;
 	}
 
@@ -62,7 +60,7 @@ public class Session {
 	 * Setter pour la promotion
 	 * @param promotion : la nouvelle promotion
 	 */
-	public void setPromotion(fr.uvsq.isty.gestionecole.modeles.Promotion promotion) {
+	public void setPromotion(Promotion promotion) {
 		this.promotion = promotion;
 	}
 
@@ -70,7 +68,7 @@ public class Session {
 	 * Getter pour le creneau temporel
 	 * @return le creneau temporel
 	 */
-	public fr.uvsq.isty.gestionecole.modeles.Creneau getCreneau() {
+	public Creneau getCreneau() {
 		return creneau;
 	}
 
@@ -78,7 +76,7 @@ public class Session {
 	 * Setter pour le creneau temporel
 	 * @param creneau : le nouveau creneau temporel
 	 */
-	public void setCreneau(fr.uvsq.isty.gestionecole.modeles.Creneau creneau) {
+	public void setCreneau(Creneau creneau) {
 		this.creneau = creneau;
 	}
 	
