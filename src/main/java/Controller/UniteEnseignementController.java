@@ -1,6 +1,7 @@
 package Controller;
 
 import Modele.UniteEnseignement;
+import Service.UniteEnseignementService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,6 +10,13 @@ import java.util.List;
 
 @RestController
 public class UniteEnseignementController {
+
+    private UniteEnseignementService ueservice = new UniteEnseignementService();
+
+    @GetMapping("/ue")
+    public List<UniteEnseignement> getUEs() {
+        return ueservice.getUEs();
+    }
 
 //    @GetMapping("/getlisteue")
 //    public List<UniteEnseignement> getListeUE() {
