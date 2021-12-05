@@ -3,6 +3,7 @@ package Controller;
 import Modele.UniteEnseignement;
 import Service.UniteEnseignementService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
@@ -17,6 +18,11 @@ public class UniteEnseignementController {
     @GetMapping("/ue")
     public List<UniteEnseignement> getUEs() throws IOException {
         return ueservice.getUEs();
+    }
+
+    @GetMapping("/ue/{sigle}")
+    public UniteEnseignement getUEById(@PathVariable String sigle) throws IOException {
+        return ueservice.getUEByName(sigle);
     }
 
 //    @GetMapping("/getlisteue")

@@ -22,4 +22,6 @@ public class SessionService {
 
         return sessions;
     }
+
+    //public Session getSessionBy
 }

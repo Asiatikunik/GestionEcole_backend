@@ -25,4 +25,16 @@ public class UniteEnseignementService {
         return ue;
 
     }
+
+    public UniteEnseignement getUEByName(String sigle) throws IOException {
+        List<UniteEnseignement> listUE = getUEs();
+        for(UniteEnseignement ue: listUE)
+        {
+            if(ue.getSigle().equals(sigle))
+            {
+                return ue;
+            }
+        }
+        return null;
+    }
 }

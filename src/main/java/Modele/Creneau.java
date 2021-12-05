@@ -1,5 +1,10 @@
 package Modele;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -10,8 +15,8 @@ import java.time.LocalTime;
  *
  */
 public class Creneau {
-
-	LocalDate date; 	//Date du creneau
+	@JsonDeserialize(using = LocalDateDeserializer.class)
+	LocalDate date; 	//Date du crenea
 	LocalTime debut; 	//Horaire de debut du creneau
 	LocalTime fin; 	//Horaire de fin du creneau
 	

@@ -26,4 +26,18 @@ public class PromotionService {
 
         return proms;
     }
+
+    public Promotion getPromByName(String nom) throws IOException {
+        List<Promotion> proms = getProms();
+        for(Promotion prom : proms)
+        {
+            if(prom.getNom().equals(nom))
+            {
+                return prom;
+            }
+        }
+        return null;
+
+    }
+
 }
