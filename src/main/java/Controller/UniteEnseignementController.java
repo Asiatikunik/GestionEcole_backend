@@ -5,6 +5,7 @@ import Service.UniteEnseignementService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class UniteEnseignementController {
     private UniteEnseignementService ueservice = new UniteEnseignementService();
 
     @GetMapping("/ue")
-    public List<UniteEnseignement> getUEs() {
+    public List<UniteEnseignement> getUEs() throws IOException {
         return ueservice.getUEs();
     }
 
