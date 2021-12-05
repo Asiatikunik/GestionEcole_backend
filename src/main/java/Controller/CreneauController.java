@@ -23,7 +23,7 @@ public class CreneauController {
     }
 
     @GetMapping("/creneau/{date}/{debut}/{fin}")
-    public Creneau getCreneau(@PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date, @PathVariable  @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)LocalTime debut, @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.TIME) LocalTime fin) throws IOException
+    public Creneau getCreneau(@PathVariable LocalDate date, @PathVariable LocalTime debut, @PathVariable LocalTime fin) throws IOException
     {
         return creneauService.getCreneau(date,debut,fin);
     }

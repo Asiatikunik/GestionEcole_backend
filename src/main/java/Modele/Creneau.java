@@ -18,8 +18,11 @@ import static java.time.format.DateTimeFormatter.*;
  *
  */
 public class Creneau {
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	LocalDate date; 	//Date du crenea
+	@DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
 	LocalTime debut; 	//Horaire de debut du creneau
+	@DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
 	LocalTime fin; 	//Horaire de fin du creneau
 	
 	/**
@@ -54,7 +57,6 @@ public class Creneau {
 	 * Setter pour la date
 	 * @param date : nouvelle date
 	 */
-	@JsonDeserialize(using = LocalDateDeserializer.class)
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
