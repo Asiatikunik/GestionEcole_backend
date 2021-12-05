@@ -1,13 +1,13 @@
 [
     {
-        "date": "2021-12-8",
-        "debut": {"hour":9,"minute":0,"second":0,"nano":0},
-        "fin": {"hour":10,"minute":0,"second":0,"nano":0}
+        "date": "2021-12-08",
+        "debut": "09:00",
+        "fin": "10:00"
     },
     {
-        "date": {"year":2020,"month":3,"day":20},
-        "debut": {"hour":20,"minute":0,"second":0,"nano":0},
-        "fin": {"hour":22,"minute":0,"second":0,"nano":0} 
+        "date": "2020-10-23",
+        "debut": "20:00",
+        "fin": "22:00"
     }
 
 ]

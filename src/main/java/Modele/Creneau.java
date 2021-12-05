@@ -7,6 +7,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+import static java.time.format.DateTimeFormatter.*;
 
 /**
  * Un creneau temporel qui represente une periode avec une heure de debut et une heure de fin
@@ -15,7 +18,6 @@ import java.time.LocalTime;
  *
  */
 public class Creneau {
-	@JsonDeserialize(using = LocalDateDeserializer.class)
 	LocalDate date; 	//Date du crenea
 	LocalTime debut; 	//Horaire de debut du creneau
 	LocalTime fin; 	//Horaire de fin du creneau
@@ -52,6 +54,7 @@ public class Creneau {
 	 * Setter pour la date
 	 * @param date : nouvelle date
 	 */
+	@JsonDeserialize(using = LocalDateDeserializer.class)
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}

@@ -1,6 +1,7 @@
 package Service;
 
 import Modele.Creneau;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -20,6 +21,7 @@ public class CreneauService {
     public List<Creneau> getCreneaux() throws IOException
     {
         ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
         BufferedReader reader = new BufferedReader(new FileReader("src/main/java/json/creneau.json"));
 
         List<Creneau> creneaux = Arrays.asList(mapper.readValue(reader, Creneau[].class));
