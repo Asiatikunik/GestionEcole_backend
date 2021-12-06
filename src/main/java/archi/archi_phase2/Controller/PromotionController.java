@@ -1,12 +1,11 @@
-package Controller;
+package archi.archi_phase2.Controller;
 
-import Modele.Promotion;
-import Service.PromotionService;
+import archi.archi_phase2.Modele.Promotion;
+import archi.archi_phase2.Service.PromotionService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 

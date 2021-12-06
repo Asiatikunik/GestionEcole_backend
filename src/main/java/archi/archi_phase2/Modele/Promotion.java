@@ -1,4 +1,4 @@
-package Modele;
+package archi.archi_phase2.Modele;
 
 /**
  * Une promotion d'etudiants

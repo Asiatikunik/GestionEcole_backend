@@ -1,13 +1,12 @@
 package archi.archi_phase2;
 
-import Controller.PromotionController;
-import Controller.UniteEnseignementController;
+import archi.archi_phase2.Controller.PromotionController;
+import archi.archi_phase2.Controller.UniteEnseignementController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackageClasses = PromotionController.class)
+//@ComponentScan(basePackageClasses = PromotionController.class)
 public class ArchiPhase2Application {
 
 	public static void main(String[] args) {

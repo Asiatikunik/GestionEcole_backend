@@ -1,6 +1,6 @@
-package Service;
+package archi.archi_phase2.Service;
 
-import Modele.Session;
+import archi.archi_phase2.Modele.Session;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ public class SessionService {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
         List<Session> sessions = null;
-        String file = "src/main/java/json/session.json";
+        String file = "src/main/resources/json/session.json";
 
         try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
             sessions = Arrays.asList(mapper.readValue(reader,Session[].class));

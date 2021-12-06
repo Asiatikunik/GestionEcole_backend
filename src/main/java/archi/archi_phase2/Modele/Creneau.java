@@ -1,15 +1,9 @@
-package Modele;
+package archi.archi_phase2.Modele;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-
-import static java.time.format.DateTimeFormatter.*;
 
 /**
  * Un creneau temporel qui represente une periode avec une heure de debut et une heure de fin

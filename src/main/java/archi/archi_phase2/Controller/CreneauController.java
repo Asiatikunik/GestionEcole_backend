@@ -1,8 +1,7 @@
-package Controller;
+package archi.archi_phase2.Controller;
 
-import Modele.Creneau;
-import Service.CreneauService;
-import org.springframework.format.annotation.DateTimeFormat;
+import archi.archi_phase2.Modele.Creneau;
+import archi.archi_phase2.Service.CreneauService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;

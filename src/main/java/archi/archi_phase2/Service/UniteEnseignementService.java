@@ -1,34 +1,27 @@
-package Service;
+package archi.archi_phase2.Service;
 
-import Modele.UniteEnseignement;
+import archi.archi_phase2.Modele.UniteEnseignement;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.io.*;
 import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class UniteEnseignementService {
 
-    public List<UniteEnseignement> getUEs() throws IOException {
+    public List<UniteEnseignement> getUEs() {
         ObjectMapper mapper = new ObjectMapper();
-        String file = "src/main/java/json/ue.json";
+        String file = "src/main/resources/json/ue.json";
         List<UniteEnseignement> ue = null;
         try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
             ue = Arrays.asList(mapper.readValue(reader,UniteEnseignement[].class));
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-
         return ue;
-
     }
 
     public UniteEnseignement getUEByName(String sigle) throws IOException {
@@ -39,5 +32,17 @@ public class UniteEnseignementService {
             }
         }
         return null;
+    }
+
+    public void addUe(UniteEnseignement uniteEnseignement) throws IOException {
+//        uniteEnseignement.setNom("duy");
+//        uniteEnseignement.setSigle("duy");
+
+        String file = "src/main/java/json/ue.json";
+        ObjectMapper objectMapper = new ObjectMapper();
+        List<UniteEnseignement> listUE = this.getUEs();
+        listUE.add(uniteEnseignement);
+        UniteEnseignement ue = new UniteEnseignement(uniteEnseignement.getSigle(), uniteEnseignement.getNom());
+        objectMapper.writeValue(new File(file), listUE);
     }
 }

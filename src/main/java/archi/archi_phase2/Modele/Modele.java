@@ -1,4 +1,4 @@
-package Modele;
+package archi.archi_phase2.Modele;
 
 //TODO: not used...
 public class Modele {

@@ -1,11 +1,8 @@
-package Service;
+package archi.archi_phase2.Service;
 
-import Modele.Creneau;
-import com.fasterxml.jackson.databind.DeserializationFeature;
+import archi.archi_phase2.Modele.Creneau;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -22,7 +19,7 @@ public class CreneauService {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
         List<Creneau> creneaux = null;
-        String file = "src/main/java/json/creneau.json";
+        String file = "src/main/resources/json/creneau.json";
 
         try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
             creneaux = Arrays.asList(mapper.readValue(reader, Creneau[].class));

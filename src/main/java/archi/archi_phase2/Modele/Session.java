@@ -1,4 +1,4 @@
-package Modele;
+package archi.archi_phase2.Modele;
 
 /**
  * Une session represente un cours, avec une UE, une promotion qui va suivre le cours

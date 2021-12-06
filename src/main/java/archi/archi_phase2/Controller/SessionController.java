@@ -1,7 +1,7 @@
-package Controller;
+package archi.archi_phase2.Controller;
 
-import Modele.Session;
-import Service.SessionService;
+import archi.archi_phase2.Modele.Session;
+import archi.archi_phase2.Service.SessionService;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

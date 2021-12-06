@@ -1,4 +1,4 @@
-package Modele;
+package archi.archi_phase2.Modele;
 
 import java.util.HashSet;
 import java.util.Set;

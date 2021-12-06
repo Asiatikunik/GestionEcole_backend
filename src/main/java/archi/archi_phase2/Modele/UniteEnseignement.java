@@ -1,4 +1,4 @@
-package Modele;
+package archi.archi_phase2.Modele;
 
 /**
  * Une unite d'enseignement (ou matiere ou module).
@@ -17,7 +17,6 @@ public class UniteEnseignement {
 	 * @param nom : le nom
 	 */
 	public UniteEnseignement(String sigle, String nom) {
-		super();
 		this.sigle = sigle;
 		this.nom = nom;
 	}
@@ -26,7 +25,6 @@ public class UniteEnseignement {
 	 * Construit une UE vide
 	 */
 	public UniteEnseignement() {
-		super();
 	}
 
 	/**

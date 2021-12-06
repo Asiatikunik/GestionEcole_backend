@@ -1,28 +1,46 @@
-package Controller;
+package archi.archi_phase2.Controller;
 
-import Modele.UniteEnseignement;
-import Service.UniteEnseignementService;
+
+import archi.archi_phase2.Modele.UniteEnseignement;
+import archi.archi_phase2.Service.UniteEnseignementService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class UniteEnseignementController {
 
-    private UniteEnseignementService ueservice = new UniteEnseignementService();
+    private UniteEnseignementService ueService;
+
+    public UniteEnseignementController(UniteEnseignementService ueService) {
+        this.ueService = ueService;
+    }
 
     @GetMapping("/ue")
     public List<UniteEnseignement> getUEs() throws IOException {
-        return ueservice.getUEs();
+        return ueService.getUEs();
     }
 
     @GetMapping("/ue/{sigle}")
     public UniteEnseignement getUEById(@PathVariable String sigle) throws IOException {
-        return ueservice.getUEByName(sigle);
+        return ueService.getUEByName(sigle);
+    }
+//
+//    @PostMapping("/addue")
+//    public void addUE() throws IOException {
+//        System.out.println("ici");
+//        UniteEnseignement uniteEnseignement = new UniteEnseignement("Duy", "Duy");
+//        ueService.addUe(uniteEnseignement);
+//    }
+
+
+    @RequestMapping("/hello")
+    public String hello() {
+        return "Hello World RESTful with Spring Boot";
     }
 
 //    @GetMapping("/getlisteue")
