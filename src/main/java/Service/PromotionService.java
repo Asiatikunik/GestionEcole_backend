@@ -17,12 +17,16 @@ import java.util.List;
 public class PromotionService {
 
     public List<Promotion> getProms() throws IOException {
-        //List<Promotion> proms = new ArrayList<>();
-        //proms.add(new Promotion(3,"IATIC5"));
         ObjectMapper mapper = new ObjectMapper();
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/java/json/promotion.json"));
+        List<Promotion> proms = null;
+        String file = "src/main/java/json/promotion.json";
 
-        List<Promotion> proms = Arrays.asList(mapper.readValue(reader,Promotion[].class));
+        try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            proms = Arrays.asList(mapper.readValue(reader,Promotion[].class));
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
 
         return proms;
     }

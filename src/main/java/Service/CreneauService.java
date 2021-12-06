@@ -18,13 +18,18 @@ import java.util.List;
 
 @Service
 public class CreneauService {
-    public List<Creneau> getCreneaux() throws IOException
-    {
+    public List<Creneau> getCreneaux() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/java/json/creneau.json"));
+        List<Creneau> creneaux = null;
+        String file = "src/main/java/json/creneau.json";
 
-        List<Creneau> creneaux = Arrays.asList(mapper.readValue(reader, Creneau[].class));
+        try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            creneaux = Arrays.asList(mapper.readValue(reader, Creneau[].class));
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
 
         return creneaux;
     }

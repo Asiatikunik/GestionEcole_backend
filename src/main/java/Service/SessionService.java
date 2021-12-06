@@ -16,23 +16,26 @@ import java.util.List;
 @Service
 public class SessionService {
 
-    public List<Session> getSessions() throws IOException
-    {
+    public List<Session> getSessions() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/java/json/session.json"));
+        List<Session> sessions = null;
+        String file = "src/main/java/json/session.json";
 
-        List<Session> sessions = Arrays.asList(mapper.readValue(reader,Session[].class));
+        try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            sessions = Arrays.asList(mapper.readValue(reader,Session[].class));
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
 
         return sessions;
     }
 
     public Session getSessionBy(String ue, String promotion, LocalDate date, LocalTime debut, LocalTime fin) throws IOException {
         List<Session> sessions = getSessions();
-        for (Session session : sessions)
-        {
-            if(session.getUniteEnseigment().getSigle().equals(ue) && session.getPromotion().getNom().equals(promotion) && session.getCreneau().getDate().equals(date) && session.getCreneau().getDebut().equals(debut) && session.getCreneau().getFin().equals(fin))
-            {
+        for (Session session : sessions) {
+            if(session.getUniteEnseigment().getSigle().equals(ue) && session.getPromotion().getNom().equals(promotion) && session.getCreneau().getDate().equals(date) && session.getCreneau().getDebut().equals(debut) && session.getCreneau().getFin().equals(fin)) {
                 return session;
             }
         }

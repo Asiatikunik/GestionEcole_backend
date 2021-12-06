@@ -16,22 +16,25 @@ import java.util.List;
 public class UniteEnseignementService {
 
     public List<UniteEnseignement> getUEs() throws IOException {
-        //List<UniteEnseignement> ues = new ArrayList<>();
-        //ues.add(new UniteEnseignement("sigle","nom"));
         ObjectMapper mapper = new ObjectMapper();
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/java/json/ue.json"));
+        String file = "src/main/java/json/ue.json";
+        List<UniteEnseignement> ue = null;
+        try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            ue = Arrays.asList(mapper.readValue(reader,UniteEnseignement[].class));
+        }
+        catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
 
-        List<UniteEnseignement> ue = Arrays.asList(mapper.readValue(reader,UniteEnseignement[].class));
         return ue;
 
     }
 
     public UniteEnseignement getUEByName(String sigle) throws IOException {
         List<UniteEnseignement> listUE = getUEs();
-        for(UniteEnseignement ue: listUE)
-        {
-            if(ue.getSigle().equals(sigle))
-            {
+        for(UniteEnseignement ue: listUE) {
+            if(ue.getSigle().equals(sigle)) {
                 return ue;
             }
         }
