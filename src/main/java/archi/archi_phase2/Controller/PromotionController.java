@@ -2,9 +2,7 @@ package archi.archi_phase2.Controller;
 
 import archi.archi_phase2.Modele.Promotion;
 import archi.archi_phase2.Service.PromotionService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -21,5 +19,10 @@ public class PromotionController {
     @GetMapping("/promotion/{nom}")
     public Promotion getPromByName(@PathVariable String nom) throws IOException {
         return promService.getPromByName(nom);
+    }
+
+    @PostMapping("/promotion")
+    public void addProm(@RequestBody Promotion prom) throws IOException {
+        promService.addProm(prom);
     }
 }
