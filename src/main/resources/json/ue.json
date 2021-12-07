@@ -1,10 +1,10 @@
-[
-    {
-        "sigle": "AL",
-        "nom": "Archi logiciel"
-    },
-    {
-        "sigle": "AA",
-        "nom": "Algo Avancé"
-    }
-]
+[ {
+  "sigle" : "AL",
+  "nom" : "Archi logiciel"
+}, {
+  "sigle" : "AA",
+  "nom" : "Algo Avancé"
+}, {
+  "sigle" : "ZZ",
+  "nom" : "Test"
+} ]

@@ -1,22 +1,26 @@
 package archi.archi_phase2.Service;
 
+import archi.archi_phase2.Modele.Promotion;
 import archi.archi_phase2.Modele.UniteEnseignement;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class UniteEnseignementService {
+    private String filename = "src/main/resources/json/ue.json";
 
     public List<UniteEnseignement> getUEs() {
         ObjectMapper mapper = new ObjectMapper();
         String file = "src/main/resources/json/ue.json";
         List<UniteEnseignement> ue = null;
         try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
-            ue = Arrays.asList(mapper.readValue(reader,UniteEnseignement[].class));
+            ue = new ArrayList<>(Arrays.asList(mapper.readValue(reader,UniteEnseignement[].class)));
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
@@ -34,15 +38,19 @@ public class UniteEnseignementService {
         return null;
     }
 
-    public void addUe(UniteEnseignement uniteEnseignement) throws IOException {
-//        uniteEnseignement.setNom("duy");
-//        uniteEnseignement.setSigle("duy");
+    public void addUe(UniteEnseignement ue) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-        String file = "src/main/java/json/ue.json";
-        ObjectMapper objectMapper = new ObjectMapper();
-        List<UniteEnseignement> listUE = this.getUEs();
-        listUE.add(uniteEnseignement);
-        UniteEnseignement ue = new UniteEnseignement(uniteEnseignement.getSigle(), uniteEnseignement.getNom());
-        objectMapper.writeValue(new File(file), listUE);
+        List<UniteEnseignement> proms = getUEs();
+        proms.add(ue);
+        String json = mapper.writeValueAsString(proms);
+
+        FileWriter fw = new FileWriter(new File(filename));
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(json);
+        bw.close();
     }
+
+
 }

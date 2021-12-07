@@ -1,12 +1,10 @@
 package archi.archi_phase2.Controller;
 
 
+import archi.archi_phase2.Modele.Promotion;
 import archi.archi_phase2.Modele.UniteEnseignement;
 import archi.archi_phase2.Service.UniteEnseignementService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -29,13 +27,11 @@ public class UniteEnseignementController {
     public UniteEnseignement getUEById(@PathVariable String sigle) throws IOException {
         return ueService.getUEByName(sigle);
     }
-//
-//    @PostMapping("/addue")
-//    public void addUE() throws IOException {
-//        System.out.println("ici");
-//        UniteEnseignement uniteEnseignement = new UniteEnseignement("Duy", "Duy");
-//        ueService.addUe(uniteEnseignement);
-//    }
+
+    @PostMapping("/ue")
+    public void addProm(@RequestBody UniteEnseignement ue) throws IOException {
+        ueService.addUe(ue);
+    }
 
 
     @RequestMapping("/hello")

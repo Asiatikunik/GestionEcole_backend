@@ -2,9 +2,7 @@ package archi.archi_phase2.Controller;
 
 import archi.archi_phase2.Modele.Creneau;
 import archi.archi_phase2.Service.CreneauService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -25,5 +23,10 @@ public class CreneauController {
     public Creneau getCreneau(@PathVariable LocalDate date, @PathVariable LocalTime debut, @PathVariable LocalTime fin) throws IOException
     {
         return creneauService.getCreneau(date,debut,fin);
+    }
+
+    @PostMapping("/creneau")
+    public void addCreneau(@RequestBody Creneau creneau) throws IOException {
+        creneauService.addCreneau(creneau);
     }
 }
