@@ -1,4 +1,10 @@
 [ {
   "sigle" : "BB",
   "nom" : "test"
+}, {
+  "sigle" : "sigle",
+  "nom" : "nom"
+}, {
+  "sigle" : "sigle",
+  "nom" : "nom"
 } ]
