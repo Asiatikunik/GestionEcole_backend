@@ -59,7 +59,7 @@ public class UniteEnseignementService {
 
         List<UniteEnseignement> ues = getUEs();
         System.out.println(ues);
-        ues.removeIf(unite -> (unite.isEqual(ue)));
+        ues.removeIf(unite -> (unite.equals(ue)));
         System.out.println(ues);
         String json = mapper.writeValueAsString(ues);
 
@@ -67,6 +67,25 @@ public class UniteEnseignementService {
         BufferedWriter bw = new BufferedWriter(fw);
         bw.write(json);
         bw.close();
+
+    }
+
+    public void updateUe(String sigle, UniteEnseignement ue) throws IOException {
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        List<UniteEnseignement> ues = getUEs();
+        int index = ues.indexOf(getUEByName(sigle));
+        System.out.println(getUEByName(sigle));
+        ues.set(index, ue);
+        String json = mapper.writeValueAsString(ues);
+
+        FileWriter fw = new FileWriter(new File(filename));
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(json);
+        bw.close();
+
 
     }
 

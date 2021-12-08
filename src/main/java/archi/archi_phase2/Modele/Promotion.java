@@ -1,5 +1,7 @@
 package archi.archi_phase2.Modele;
 
+import java.util.Objects;
+
 /**
  * Une promotion d'etudiants
  * Represente un ensemble d'etudiants qui seront diplomes la meme annee
@@ -63,14 +65,22 @@ public class Promotion {
 		this.nom = nom;
 	}
 
-	public boolean isEqual( Promotion a)
+
+	@Override
+	public boolean equals(Object a)
 	{
-		if(this.getNom().equals(a.getNom()) && this.getAnneeDiplome()==a.getAnneeDiplome())
+		if(a==this)
 		{
 			return true;
 		}
-		return false;
+		if (!(a instanceof Promotion)) {
+			return false;
+		}
+		Promotion prom = (Promotion) a;
+		return anneeDiplome == prom.anneeDiplome &&
+				Objects.equals(nom, prom.nom);
 	}
+
 	
 	public String toString() {
 		return this.nom +  " - " + this.anneeDiplome;

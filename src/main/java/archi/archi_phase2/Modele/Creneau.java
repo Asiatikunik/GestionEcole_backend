@@ -4,6 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Objects;
 
 /**
  * Un creneau temporel qui represente une periode avec une heure de debut et une heure de fin
@@ -91,12 +92,20 @@ public class Creneau {
 		return this.date.toString() +  " -- " + this.debut.toString() + " - " + this.fin.toString();
 	}
 
-
-    public boolean isEqual(Creneau creneau) {
-		if(this.getDate().equals(creneau.getDate()) && this.getDebut().equals(creneau.getDebut()) && this.getFin().equals(creneau.getFin()))
+	@Override
+	public boolean equals(Object o)
+	{
+		if(this==o)
 		{
 			return true;
 		}
-		return false;
-    }
+		if(!(o instanceof Creneau))
+		{
+			return false;
+		}
+		Creneau creneau = (Creneau) o;
+		return Objects.equals(date,creneau.date) &&
+				Objects.equals(debut,creneau.debut) &&
+				Objects.equals(fin,creneau.fin);
+	}
 }

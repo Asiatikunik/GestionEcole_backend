@@ -69,7 +69,27 @@ public class SessionService {
 
         List<Session> sessions = getSessions();
         System.out.println(sessions);
-        sessions.removeIf(sess -> (sess.isEquals(session)));
+        sessions.removeIf(sess -> (sess.equals(session)));
+        System.out.println(sessions);
+        String json = mapper.writeValueAsString(sessions);
+
+        FileWriter fw = new FileWriter(new File(filename));
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(json);
+        bw.close();
+    }
+
+    public void updateSession(String sigle, String nom, LocalDate date, LocalTime debut, LocalTime fin, Session session) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        List<Session> sessions = getSessions();
+        int index = sessions.indexOf(getSessionBy(sigle,nom,date,debut,fin));
+        System.out.println(getSessionBy(sigle,nom,date,debut,fin));
+        System.out.println(session);
+        System.out.println(sessions);
+        sessions.set(index, session);
         System.out.println(sessions);
         String json = mapper.writeValueAsString(sessions);
 

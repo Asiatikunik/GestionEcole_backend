@@ -1,5 +1,7 @@
 package archi.archi_phase2.Modele;
 
+import java.util.Objects;
+
 /**
  * Une unite d'enseignement (ou matiere ou module).
  * Comporte un nom d'usage et un sigle officiel/administratif.
@@ -71,11 +73,19 @@ public class UniteEnseignement {
 		return "Sigle : " + sigle + " - Nom : " + nom;
 	}
 
-    public boolean isEqual(UniteEnseignement ue) {
-		if(this.getSigle().equals(ue.getSigle())&&this.getNom().equals(ue.getNom()))
+    @Override
+	public boolean equals(Object o)
+	{
+		if(this==o)
 		{
 			return true;
 		}
-		return false;
-    }
+		if(!(o instanceof UniteEnseignement))
+		{
+			return false;
+		}
+		UniteEnseignement ue = (UniteEnseignement) o;
+		return Objects.equals(sigle, ue.sigle) &&
+			Objects.equals(nom, ue.nom);
+	}
 }

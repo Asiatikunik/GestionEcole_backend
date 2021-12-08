@@ -1,5 +1,7 @@
 package archi.archi_phase2.Modele;
 
+import java.util.Objects;
+
 /**
  * Une session represente un cours, avec une UE, une promotion qui va suivre le cours
  * et un creneau temporel sur lequel le cours va avoir lieu.
@@ -84,7 +86,22 @@ public class Session {
 		return this.uniteEnseigment + " - " + this.promotion + " - " + this.creneau;
 	}
 
-    public boolean isEquals(Session session) {
-		return this.getCreneau().isEqual(session.getCreneau()) && this.getPromotion().isEqual(session.getPromotion()) && this.getUniteEnseigment().isEqual(session.getUniteEnseigment());
+    @Override
+	public boolean equals(Object o)
+	{
+		if(this==o)
+		{
+			return true;
+		}
+		if(!(o instanceof Session))
+		{
+			return false;
+		}
+
+		Session session = (Session) o;
+		return uniteEnseigment.equals(this.uniteEnseigment) &&
+				creneau.equals(this.creneau) &&
+				promotion.equals(this.promotion);
+
 	}
 }

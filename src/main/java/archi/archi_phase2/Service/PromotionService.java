@@ -56,23 +56,7 @@ public class PromotionService {
         bw.close();
     }
 
-    /*public void deleteProm(String nom) throws IOException
-    {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-        List<Promotion> proms = getProms();
-        System.out.println(proms);
-        proms.removeIf(prom -> (prom.getNom().equals(nom)));
-        System.out.println(proms);
-        String json = mapper.writeValueAsString(proms);
-
-        FileWriter fw = new FileWriter(new File(filename));
-        BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(json);
-        bw.close();
-
-    }*/
 
     public void deleteProm(Promotion promotion) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
@@ -80,7 +64,7 @@ public class PromotionService {
 
         List<Promotion> proms = getProms();
         System.out.println(proms);
-        proms.removeIf(prom -> prom.isEqual(promotion));
+        proms.removeIf(prom -> prom.equals(promotion));
         System.out.println(proms);
         String json = mapper.writeValueAsString(proms);
 
@@ -88,6 +72,24 @@ public class PromotionService {
         BufferedWriter bw = new BufferedWriter(fw);
         bw.write(json);
         bw.close();
+    }
+
+    public void updatePromotion(String nom, Promotion promotion) throws IOException {
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        List<Promotion> promotions = getProms();
+        int index = promotions.indexOf(getPromByName(nom));
+        promotions.set(index, promotion);
+        String json = mapper.writeValueAsString(promotions);
+
+        FileWriter fw = new FileWriter(new File(filename));
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(json);
+        bw.close();
+
+
     }
 
 

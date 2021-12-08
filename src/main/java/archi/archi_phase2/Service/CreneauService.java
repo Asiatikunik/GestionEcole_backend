@@ -71,7 +71,7 @@ public class CreneauService {
 
         List<Creneau> creneaux = getCreneaux();
         System.out.println(creneaux);
-        creneaux.removeIf(cren ->(cren.isEqual(creneau)));
+        creneaux.removeIf(cren ->(cren.equals(creneau)));
         System.out.println(creneaux);
         String json = mapper.writeValueAsString(creneaux);
 
@@ -80,6 +80,26 @@ public class CreneauService {
         bw.write(json);
         bw.close();
 
+    }
+
+    public void updateCreneau(LocalDate date, LocalTime debut, LocalTime fin, Creneau creneau) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        List<Creneau> creneaux = getCreneaux();
+        int index = creneaux.indexOf(getCreneau(date,debut,fin));
+        System.out.println(getCreneau(date,debut,fin));
+        System.out.println(creneau);
+        System.out.println(creneaux);
+        creneaux.set(index, creneau);
+        System.out.println(creneaux);
+        String json = mapper.writeValueAsString(creneaux);
+
+        FileWriter fw = new FileWriter(new File(filename));
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(json);
+        bw.close();
     }
 
 }
