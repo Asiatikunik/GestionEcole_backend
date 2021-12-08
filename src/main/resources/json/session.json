@@ -1,38 +1,43 @@
-[
-  {
-    "uniteEnseigment" :
-    {
-      "sigle": "AL",
-      "nom": "Archi logiciel"
-    },
-    "promotion":
-    {
-      "anneeDiplome": 2019,
-      "nom": "IATIC3"
-    },
-    "creneau":
-    {
-      "date": "2021-12-08",
-      "debut": "09:00",
-      "fin": "10:00"
-    }
+[ {
+  "uniteEnseigment" : {
+    "sigle" : "AL",
+    "nom" : "Archi logiciel"
   },
-  {
-    "uniteEnseigment" :
-    {
-      "sigle": "AZ",
-      "nom": "Archi "
-    },
-    "promotion":
-    {
-      "anneeDiplome": 2020,
-      "nom": "IATIC5"
-    },
-    "creneau":
-    {
-      "date": "2020-10-24",
-      "debut": "07:00",
-      "fin": "10:00"
-    }
+  "promotion" : {
+    "anneeDiplome" : 2019,
+    "nom" : "IATIC3"
+  },
+  "creneau" : {
+    "date" : [ 2021, 12, 8 ],
+    "debut" : [ 9, 0 ],
+    "fin" : [ 10, 0 ]
   }
- ]
+}, {
+  "uniteEnseigment" : {
+    "sigle" : "AZ",
+    "nom" : "Archi "
+  },
+  "promotion" : {
+    "anneeDiplome" : 2020,
+    "nom" : "IATIC5"
+  },
+  "creneau" : {
+    "date" : [ 2020, 10, 24 ],
+    "debut" : [ 7, 0 ],
+    "fin" : [ 10, 0 ]
+  }
+}, {
+  "uniteEnseigment" : {
+    "sigle" : "tt",
+    "nom" : "test test test"
+  },
+  "promotion" : {
+    "anneeDiplome" : 2235,
+    "nom" : "IATIC9"
+  },
+  "creneau" : {
+    "date" : [ 2235, 3, 25 ],
+    "debut" : [ 23, 0 ],
+    "fin" : [ 23, 0 ]
+  }
+} ]

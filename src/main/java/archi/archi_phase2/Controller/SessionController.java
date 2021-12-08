@@ -3,9 +3,7 @@ package archi.archi_phase2.Controller;
 import archi.archi_phase2.Modele.Session;
 import archi.archi_phase2.Service.SessionService;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -24,5 +22,10 @@ public class SessionController {
     @GetMapping("/session/{sigle}/{nom}/{date}/{debut}/{fin}")
     public Session getSession(@PathVariable String sigle, @PathVariable String nom, @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date, @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.TIME) LocalTime debut, @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.TIME) LocalTime fin) throws IOException {
         return sessionService.getSessionBy(sigle,nom,date,debut,fin);
+    }
+
+    @PostMapping("/session")
+    public void addSession(@RequestBody Session session) throws IOException {
+        sessionService.addSession(session);
     }
 }
