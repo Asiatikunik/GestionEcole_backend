@@ -38,10 +38,10 @@ public class UniteEnseignementController {
     }
 
     @Operation(summary="Supprimer une unité d'enseignement")
-    @DeleteMapping("/ue")
-    public void deleteUe(@RequestBody UniteEnseignement ue) throws IOException
+    @DeleteMapping("/ue/{nom}")
+    public void deleteUe(@PathVariable String nom) throws IOException
     {
-        ueService.deleteUe(ue);
+        ueService.deleteUe(nom);
     }
 
     @Operation(summary="Modifier une unité d'enseignement")
