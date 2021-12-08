@@ -52,5 +52,23 @@ public class UniteEnseignementService {
         bw.close();
     }
 
+    public void deleteUe(UniteEnseignement ue) throws IOException
+    {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        List<UniteEnseignement> ues = getUEs();
+        System.out.println(ues);
+        ues.removeIf(unite -> (unite.isEqual(ue)));
+        System.out.println(ues);
+        String json = mapper.writeValueAsString(ues);
+
+        FileWriter fw = new FileWriter(new File(filename));
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(json);
+        bw.close();
+
+    }
+
 
 }

@@ -29,37 +29,14 @@ public class UniteEnseignementController {
     }
 
     @PostMapping("/ue")
-    public void addProm(@RequestBody UniteEnseignement ue) throws IOException {
+    public void addUe(@RequestBody UniteEnseignement ue) throws IOException {
         ueService.addUe(ue);
     }
 
-
-    @RequestMapping("/hello")
-    public String hello() {
-        return "Hello World RESTful with Spring Boot";
+    @DeleteMapping("/ue")
+    public void deleteUe(@RequestBody UniteEnseignement ue) throws IOException
+    {
+        ueService.deleteUe(ue);
     }
-
-//    @GetMapping("/getlisteue")
-//    public List<UniteEnseignement> getListeUE() {
-//        List<UniteEnseignement> temp = new ArrayList<UniteEnseignement>();
-//        String query = "SELECT * FROM ue";
-//
-//        try {
-//            Connection connection = Connexion.getConnection();
-//            PreparedStatement statement = connection.prepareStatement(query);
-//            ResultSet rs = statement.executeQuery();
-//            while (rs.next()) {
-//                UniteEnseignement ue = new UniteEnseignement(rs.getString(1), rs.getString(2));
-//
-//                temp.add(ue);
-//            }
-//        } catch (SQLException e) {
-//            System.err.println(e.getMessage());
-//        } finally {
-//            Connexion.closeConnection();
-//        }
-//
-//        return temp;
-//    }
 
 }

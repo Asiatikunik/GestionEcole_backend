@@ -26,18 +26,4 @@
     "debut" : [ 7, 0 ],
     "fin" : [ 10, 0 ]
   }
-}, {
-  "uniteEnseigment" : {
-    "sigle" : "tt",
-    "nom" : "test test test"
-  },
-  "promotion" : {
-    "anneeDiplome" : 2235,
-    "nom" : "IATIC9"
-  },
-  "creneau" : {
-    "date" : [ 2235, 3, 25 ],
-    "debut" : [ 23, 0 ],
-    "fin" : [ 23, 0 ]
-  }
 } ]

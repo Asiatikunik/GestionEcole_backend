@@ -2,6 +2,7 @@ package archi.archi_phase2.Controller;
 
 import archi.archi_phase2.Modele.Creneau;
 import archi.archi_phase2.Service.CreneauService;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -28,5 +29,10 @@ public class CreneauController {
     @PostMapping("/creneau")
     public void addCreneau(@RequestBody Creneau creneau) throws IOException {
         creneauService.addCreneau(creneau);
+    }
+
+    @DeleteMapping("/creneau")
+    public void deleteCreneau(@RequestBody Creneau creneau) throws IOException {
+        creneauService.deleteCreneau(creneau);
     }
 }

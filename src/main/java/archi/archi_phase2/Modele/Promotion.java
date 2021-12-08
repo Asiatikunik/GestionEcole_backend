@@ -62,6 +62,15 @@ public class Promotion {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
+	public boolean isEqual( Promotion a)
+	{
+		if(this.getNom().equals(a.getNom()) && this.getAnneeDiplome()==a.getAnneeDiplome())
+		{
+			return true;
+		}
+		return false;
+	}
 	
 	public String toString() {
 		return this.nom +  " - " + this.anneeDiplome;

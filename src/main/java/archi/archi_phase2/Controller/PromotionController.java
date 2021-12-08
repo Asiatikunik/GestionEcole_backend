@@ -25,4 +25,10 @@ public class PromotionController {
     public void addProm(@RequestBody Promotion prom) throws IOException {
         promService.addProm(prom);
     }
+
+    @DeleteMapping("/promotion")
+    public void deleteProm(@RequestBody Promotion promotion) throws IOException
+    {
+        promService.deleteProm(promotion);
+    }
 }

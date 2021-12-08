@@ -83,5 +83,8 @@ public class Session {
 	public String toString() {
 		return this.uniteEnseigment + " - " + this.promotion + " - " + this.creneau;
 	}
-	
+
+    public boolean isEquals(Session session) {
+		return this.getCreneau().isEqual(session.getCreneau()) && this.getPromotion().isEqual(session.getPromotion()) && this.getUniteEnseigment().isEqual(session.getUniteEnseigment());
+	}
 }

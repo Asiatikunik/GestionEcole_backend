@@ -60,4 +60,22 @@ public class SessionService {
         bw.write(json);
         bw.close();
     }
+
+    public void deleteSession(Session session) throws IOException
+    {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        List<Session> sessions = getSessions();
+        System.out.println(sessions);
+        sessions.removeIf(sess -> (sess.isEquals(session)));
+        System.out.println(sessions);
+        String json = mapper.writeValueAsString(sessions);
+
+        FileWriter fw = new FileWriter(new File(filename));
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(json);
+        bw.close();
+    }
 }

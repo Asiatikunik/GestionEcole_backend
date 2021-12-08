@@ -70,4 +70,12 @@ public class UniteEnseignement {
 	public String toString() {
 		return "Sigle : " + sigle + " - Nom : " + nom;
 	}
+
+    public boolean isEqual(UniteEnseignement ue) {
+		if(this.getSigle().equals(ue.getSigle())&&this.getNom().equals(ue.getNom()))
+		{
+			return true;
+		}
+		return false;
+    }
 }

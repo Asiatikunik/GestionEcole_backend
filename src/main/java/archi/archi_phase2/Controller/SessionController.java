@@ -28,4 +28,10 @@ public class SessionController {
     public void addSession(@RequestBody Session session) throws IOException {
         sessionService.addSession(session);
     }
+
+    @DeleteMapping("/session")
+    public void deleteSession(@RequestBody Session session) throws IOException
+    {
+        sessionService.deleteSession(session);
+    }
 }

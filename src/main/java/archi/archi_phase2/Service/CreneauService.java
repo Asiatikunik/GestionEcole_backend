@@ -1,6 +1,7 @@
 package archi.archi_phase2.Service;
 
 import archi.archi_phase2.Modele.Creneau;
+import archi.archi_phase2.Modele.Promotion;
 import archi.archi_phase2.Modele.UniteEnseignement;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -61,4 +62,24 @@ public class CreneauService {
         bw.write(json);
         bw.close();
     }
+
+    public void deleteCreneau(Creneau creneau) throws IOException
+    {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        List<Creneau> creneaux = getCreneaux();
+        System.out.println(creneaux);
+        creneaux.removeIf(cren ->(cren.isEqual(creneau)));
+        System.out.println(creneaux);
+        String json = mapper.writeValueAsString(creneaux);
+
+        FileWriter fw = new FileWriter(new File(filename));
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(json);
+        bw.close();
+
+    }
+
 }

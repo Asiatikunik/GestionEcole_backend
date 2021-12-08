@@ -90,6 +90,13 @@ public class Creneau {
 	public String toString() {
 		return this.date.toString() +  " -- " + this.debut.toString() + " - " + this.fin.toString();
 	}
-	
 
+
+    public boolean isEqual(Creneau creneau) {
+		if(this.getDate().equals(creneau.getDate()) && this.getDebut().equals(creneau.getDebut()) && this.getFin().equals(creneau.getFin()))
+		{
+			return true;
+		}
+		return false;
+    }
 }
